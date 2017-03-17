@@ -1,0 +1,177 @@
+@CHARSET "ISO-8859-1";
+
+#result {
+	color: red;
+}
+
+a {
+	position:absolute;
+	right:0px;
+	padding: 10px;
+	font-family: Monospace;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.header {
+    height:50px;
+    background:#000000;
+    border:1px solid #CCC;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width:100%;
+}
+
+.header-cont {
+	color: #FFFFFF;
+}
+
+.login{
+	
+    background-color: #f2f2f2;
+    position:absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    font-family: Monospace;
+    font-size: 1.5em;
+}
+
+.addRes{
+	background-color: #f2f2f2;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    font-family: Monospace;
+    font-size: 1.5em;
+}
+
+.dashboard{
+	
+    position:absolute;
+    width:80%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-40%, -10%);
+    font-family: Monospace;
+    font-size: 1.5em;
+}
+
+.login .message{
+	text-align: center;
+	margin: 10px auto;
+	color: red;
+}
+
+.login label, .addRes .res p{
+	display: inline-block;
+	float: left;
+	width: 220px;
+	margin: 0 10px auto; 
+	text-align: right;
+}
+
+.login .submitDiv, .addRes .resDiv{
+	display: inline-block;
+	height: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+.login input[type=submit], .addRes .res input[type=submit]{
+	display: inline-block;
+	margin: 10px auto;
+	border-radius: 5px;
+	font-family: Monospace;
+	text-align: center;
+}
+
+.generateDiv {
+    position:absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Monospace;
+    font-size: 1.5em;
+}
+
+.generateDiv input[type=submit]{
+	display: inline-block;
+	margin: 10px auto;
+	border-radius: 5px;
+	font-family: Monospace;
+	text-align: center;
+}
+
+.dashboard table, .dashboard th, .dashboard td {
+	border-bottom: 1px solid #ddd;
+}
+
+.dashboard table{
+	width: 80%;
+}
+
+.dashboard th, .dashboard td{
+	width: 20%;
+}
+
+.dashboard tr:hover {
+	background-color: #f5f5f5
+}
+
+.dashboard .actions{
+	text-align: center;
+}
+
+.dashboard form{
+	display: inline-block;
+}
+
+.dashboard input{
+	border-radius: 5px;
+    font-size: 0.8em;
+    margin: auto;
+    display: inline-block;
+}
+
+.dashboard .welcome {
+	margin: 30px 0 50px 450px;
+}
+
+.dashboard .result {
+	display: inline-block;
+	color: red;
+	width: 100%;
+	text-align: center;
+}
+
+input[type=text], [type=password]{
+	
+	display: inline-block;
+  	float: left;
+	border: 2px solid gray;
+    border-radius: 5px;
+    font-size: 1em;
+    margin: 0px 0px 10px 0px;
+}
+
+.updateRes input[type=submit]{
+	
+	display: inline-block;
+	float: right;
+	margin: 50px auto;
+	border-radius: 5px;
+	font-family: Monospace;
+	text-align: center;
+}
+
+.grayout{
+    opacity: 0.6;
+    background-color: gray;
+}
