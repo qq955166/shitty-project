@@ -5,7 +5,6 @@ import johnny.dailylunchgenerator.service.UserService;
 import johnny.dailylunchgenerator.viewBean.EmployeeBean;
 import johnny.dailylunchgenerator.viewBean.UserBean;
 
-import org.apache.catalina.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
