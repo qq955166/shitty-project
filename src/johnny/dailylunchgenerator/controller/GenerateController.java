@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import johnny.dailylunchgenerator.service.ResService;
 import johnny.dailylunchgenerator.viewBean.UserBean;
 import johnny.dailylunchgenerator.viewBean.MessageBean;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class GenerateController {
 	@RequestMapping(value="/generate", method=RequestMethod.POST)
 	public ModelAndView displayResult(HttpServletRequest req){
 		
-		EmployeeBean res = null;
+		RestaurantBean res = null;
 		
 		if("fast".equals(req.getParameter("fastOnly"))){
 			Map<String, String> map = new HashMap<String, String>();
@@ -67,7 +67,7 @@ public class GenerateController {
 		ModelAndView mav = new ModelAndView("redirect:/login");
 		redir.addFlashAttribute("userBean", new UserBean());
 		
-		EmployeeBean res = resService.getRestaurantbyId(id);
+		RestaurantBean res = resService.getRestaurantbyId(id);
 		
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date today = new Date();

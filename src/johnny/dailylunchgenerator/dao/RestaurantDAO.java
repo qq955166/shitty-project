@@ -3,30 +3,30 @@ package johnny.dailylunchgenerator.dao;
 import java.util.List;
 import java.util.Map;
 
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 
 public interface RestaurantDAO {
 	
-	public boolean addRestaurant(EmployeeBean resBean);
+	public boolean addRestaurant(RestaurantBean resBean);
 	
-	public List<EmployeeBean> getRestaurantbyBean(EmployeeBean resBean) throws Exception;
+	public List<RestaurantBean> getRestaurantbyBean(RestaurantBean resBean) throws Exception;
 	
-	public EmployeeBean getRestaurantbyId(int id);
+	public RestaurantBean getRestaurantbyId(int id);
 	
-	public EmployeeBean getRestaurantbyName(String resname);
+	public RestaurantBean getRestaurantbyName(String resname);
 	
-	public EmployeeBean getRestaurantByRandom();
+	public RestaurantBean getRestaurantByRandom();
 	
-	public EmployeeBean getRestaurantByRandomWithFilter(Map<String, String> filter);
+	public RestaurantBean getRestaurantByRandomWithFilter(Map<String, String> filter);
 	
 	public int getRestaurantCount();
 	
-	public List<EmployeeBean> listRestaurant();
+	public List<RestaurantBean> listRestaurant();
 	
 	public boolean deleteResByName(String resname);
 	
 	public boolean deleteResById(int id);
 	
-	public boolean updateRestaurant(EmployeeBean resBean);
+	public boolean updateRestaurant(RestaurantBean resBean);
 
 }

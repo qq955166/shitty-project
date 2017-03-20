@@ -5,7 +5,7 @@ import java.util.List;
 
 import johnny.dailylunchgenerator.service.ResService;
 import johnny.dailylunchgenerator.service.UserService;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 import johnny.dailylunchgenerator.viewBean.UserBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class UserController {
 			mav = new ModelAndView("user");
 		}
 		
-		List<EmployeeBean> list = null;
+		List<RestaurantBean> list = null;
 		UserBean user;
 		
 		try {

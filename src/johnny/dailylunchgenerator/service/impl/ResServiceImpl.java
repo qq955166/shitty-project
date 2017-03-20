@@ -5,7 +5,7 @@ import java.util.Map;
 
 import johnny.dailylunchgenerator.dao.RestaurantDAO;
 import johnny.dailylunchgenerator.service.ResService;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 
 public class ResServiceImpl implements ResService
 {
@@ -20,27 +20,27 @@ public class ResServiceImpl implements ResService
 	{
 		this.resDao = resDao;
 	}
-	public boolean addRestaurant(EmployeeBean resBean)
+	public boolean addRestaurant(RestaurantBean resBean)
 	{
 		return resDao.addRestaurant(resBean);
 	}
-	public List<EmployeeBean> getRestaurantbyBean(EmployeeBean resBean) throws Exception
+	public List<RestaurantBean> getRestaurantbyBean(RestaurantBean resBean) throws Exception
 	{
 		return resDao.getRestaurantbyBean(resBean);
 	}
-	public EmployeeBean getRestaurantbyId(int id)
+	public RestaurantBean getRestaurantbyId(int id)
 	{
 		return resDao.getRestaurantbyId(id);
 	}
-	public EmployeeBean getRestaurantbyName(String resname)
+	public RestaurantBean getRestaurantbyName(String resname)
 	{
 		return resDao.getRestaurantbyName(resname);
 	}
-	public EmployeeBean getRestaurantByRandom()
+	public RestaurantBean getRestaurantByRandom()
 	{
 		return resDao.getRestaurantByRandom();
 	}
-	public EmployeeBean getRestaurantByRandomWithFilter(Map<String, String> filter)
+	public RestaurantBean getRestaurantByRandomWithFilter(Map<String, String> filter)
 	{
 		return resDao.getRestaurantByRandomWithFilter(filter);
 	}
@@ -48,7 +48,7 @@ public class ResServiceImpl implements ResService
 	{
 		return resDao.getRestaurantCount();
 	}
-	public List<EmployeeBean> listRestaurant()
+	public List<RestaurantBean> listRestaurant()
 	{
 		return resDao.listRestaurant();
 	}
@@ -60,7 +60,7 @@ public class ResServiceImpl implements ResService
 	{
 		return resDao.deleteResById(id);
 	}
-	public boolean updateRestaurant(EmployeeBean resBean)
+	public boolean updateRestaurant(RestaurantBean resBean)
 	{
 		return resDao.updateRestaurant(resBean);
 	}

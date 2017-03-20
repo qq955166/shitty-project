@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import johnny.dailylunchgenerator.dao.RestaurantDAO;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -22,7 +22,7 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public boolean addRestaurant(EmployeeBean resBean) {
+	public boolean addRestaurant(RestaurantBean resBean) {
 		String SQL = "insert into restaurant (user_id, resname, address, description, food_type) values (?, ?, ?, ?, ?)";
 
 		int num = jdbcTemplateObject.update( SQL, resBean.getUser_id(), resBean.getResname(), resBean.getAddress(), resBean.getDescription(), resBean.getFood_type());
@@ -30,10 +30,10 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public List<EmployeeBean> getRestaurantbyBean(EmployeeBean resBean) throws Exception{
+	public List<RestaurantBean> getRestaurantbyBean(RestaurantBean resBean) throws Exception{
 		
 		String SQL = "select * from restaurant where resname = ?";
-		List<EmployeeBean> resList;
+		List<RestaurantBean> resList;
 		
 		resList = jdbcTemplateObject.query(SQL, new Object[]{resBean.getResname()}, new RestaurantMapper());
 
@@ -41,9 +41,9 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 
 	@Override
-	public EmployeeBean getRestaurantbyId(int id) {
+	public RestaurantBean getRestaurantbyId(int id) {
 		String SQL = "select * from restaurant where id = ?";
-		EmployeeBean res;
+		RestaurantBean res;
 		try{
 			
 			res = jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, new RestaurantMapper());
@@ -56,10 +56,10 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public EmployeeBean getRestaurantbyName(String resname) {
+	public RestaurantBean getRestaurantbyName(String resname) {
 		
 		String SQL = "select * from restaurant where resname = ?";
-		EmployeeBean res;
+		RestaurantBean res;
 		
 		try{
 			res = jdbcTemplateObject.queryForObject(SQL, new Object[]{resname}, new RestaurantMapper());
@@ -71,10 +71,10 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public EmployeeBean getRestaurantByRandom(){
+	public RestaurantBean getRestaurantByRandom(){
 		
 		String SQL = "select * from restaurant order by RAND() limit 1";
-		EmployeeBean res;
+		RestaurantBean res;
 		
 		try{
 			res = jdbcTemplateObject.queryForObject(SQL, new Object[]{}, new RestaurantMapper());
@@ -86,7 +86,7 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public EmployeeBean getRestaurantByRandomWithFilter(Map<String, String> filter){
+	public RestaurantBean getRestaurantByRandomWithFilter(Map<String, String> filter){
 		StringBuilder SQL = new StringBuilder();
 		
 		SQL.append("select * from restaurant where 1=1 ");
@@ -103,7 +103,7 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 		
 		System.out.println("SQL: " + SQL);
 		
-		EmployeeBean res;
+		RestaurantBean res;
 		
 		try{
 			res = jdbcTemplateObject.queryForObject(SQL.toString(), new Object[]{}, new RestaurantMapper());
@@ -122,9 +122,9 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 	
 	@Override
-	public List<EmployeeBean> listRestaurant() {
+	public List<RestaurantBean> listRestaurant() {
 		String SQL = "select * from restaurant";
-		List <EmployeeBean> ress = jdbcTemplateObject.query(SQL, new RestaurantMapper());
+		List <RestaurantBean> ress = jdbcTemplateObject.query(SQL, new RestaurantMapper());
 		return ress;
 	}
 	
@@ -145,7 +145,7 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 	}
 
 	@Override
-	public boolean updateRestaurant(EmployeeBean resBean){
+	public boolean updateRestaurant(RestaurantBean resBean){
 		String SQL = "update restaurant set resname = ? , address = ? , description = ? , lastvisitedday = ? , food_type = ? where id = ?";
 		int num = jdbcTemplateObject.update(SQL, resBean.getResname(), resBean.getAddress(), resBean.getDescription(), resBean.getLastvisitedday(), resBean.getFood_type(), String.valueOf(resBean.getId()));
 		System.out.println("Updated Record with resname = " + resBean.getResname());

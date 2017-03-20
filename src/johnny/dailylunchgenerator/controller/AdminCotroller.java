@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import johnny.dailylunchgenerator.service.ResService;
 import johnny.dailylunchgenerator.service.UserService;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 import johnny.dailylunchgenerator.viewBean.UserBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class AdminCotroller {
 	@Autowired
 	private UserService userService;
 
-	/*@RequestMapping(value="/{id}/admindashboard", method=RequestMethod.GET)
+	@RequestMapping(value="/{id}/admindashboard", method=RequestMethod.GET)
 	public ModelAndView dashboardHome(@PathVariable("id") int id, HttpServletRequest req, Model model){
 		
 		ModelAndView mav = new ModelAndView("dashboard");
@@ -48,7 +48,7 @@ public class AdminCotroller {
 		
 		mav.addObject("lists", lists);
 		return mav;
-	}*/
+	}
 	
 	@RequestMapping(value="/{id}/{resid}/delete", method=RequestMethod.POST)
 	public ModelAndView deleteRes(HttpServletRequest req, @PathVariable("id") int id, @PathVariable("resid") int resid, RedirectAttributes redir){
@@ -57,7 +57,7 @@ public class AdminCotroller {
 		
 		try{
 			
-			EmployeeBean res = resService.getRestaurantbyId(resid);
+			RestaurantBean res = resService.getRestaurantbyId(resid);
 			
 			redir.addFlashAttribute("loggedInUser", req.getAttribute("loggedInUser"));
 			

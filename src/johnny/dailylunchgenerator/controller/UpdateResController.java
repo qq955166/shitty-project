@@ -2,7 +2,7 @@ package johnny.dailylunchgenerator.controller;
 
 import johnny.dailylunchgenerator.service.ResService;
 import johnny.dailylunchgenerator.service.UserService;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 import johnny.dailylunchgenerator.viewBean.UserBean;
 
 import org.apache.log4j.Logger;
@@ -40,7 +40,7 @@ public class UpdateResController {
 	public ModelAndView updateRes(@PathVariable("id") int user_id, @PathVariable("resid") int resid){
 		ModelAndView mav = new ModelAndView("updateRes");
 		
-		EmployeeBean res;
+		RestaurantBean res;
 		UserBean user;
 		
 		try{
@@ -57,7 +57,7 @@ public class UpdateResController {
 	}
 	
 	@RequestMapping(value="{id}/{resid}/save", method=RequestMethod.POST)
-	public ModelAndView saveUpdate(@PathVariable("id") int user_id, @PathVariable("resid") int resid, @ModelAttribute("resBean") EmployeeBean resBean, RedirectAttributes redir){
+	public ModelAndView saveUpdate(@PathVariable("id") int user_id, @PathVariable("resid") int resid, @ModelAttribute("resBean") RestaurantBean resBean, RedirectAttributes redir){
 		
 		ModelAndView mav = null;
 		

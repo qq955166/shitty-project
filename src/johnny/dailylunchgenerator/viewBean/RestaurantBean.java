@@ -1,6 +1,6 @@
 package johnny.dailylunchgenerator.viewBean;
 
-public class EmployeeBean {
+public class RestaurantBean {
 	
 	private int id;
 	private int user_id;

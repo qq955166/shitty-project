@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import johnny.dailylunchgenerator.service.ResService;
 import johnny.dailylunchgenerator.service.UserService;
-import johnny.dailylunchgenerator.viewBean.EmployeeBean;
+import johnny.dailylunchgenerator.viewBean.RestaurantBean;
 
 @Controller
 public class AddResController {
@@ -33,10 +33,10 @@ public class AddResController {
 	private UserService userService;
 	
 	@RequestMapping(value="/{id}/addRes", method=RequestMethod.GET)
-	public ModelAndView addResHome(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response, EmployeeBean resBean)
+	public ModelAndView addResHome(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response, RestaurantBean resBean)
 	{
 		ModelAndView model = new ModelAndView("addRes");
-		model.addObject("resBean", new EmployeeBean());
+		model.addObject("resBean", new RestaurantBean());
 		request.setAttribute("loggedInUser", request.getParameter("loggedInUser"));
 		return model;
 	}
@@ -51,14 +51,14 @@ public class AddResController {
 	}
 	
 	@RequestMapping(value="/{id}/action", params="addRes", method=RequestMethod.POST)
-	public ModelAndView addRes(@PathVariable("id") int id, HttpServletRequest request, @ModelAttribute("RestaurantBean") EmployeeBean resBean, BindingResult result)
+	public ModelAndView addRes(@PathVariable("id") int id, HttpServletRequest request, @ModelAttribute("RestaurantBean") RestaurantBean resBean, BindingResult result)
 	{
 		ModelAndView mav = new ModelAndView("addRes");
 		String username = (String)request.getParameter("loggedInUser");
 		
 		try {
 		
-			List<EmployeeBean> resList = resService.getRestaurantbyBean(resBean);
+			List<RestaurantBean> resList = resService.getRestaurantbyBean(resBean);
 			
 			if(resList==null){
 				
@@ -84,7 +84,7 @@ public class AddResController {
 			logger.debug("Add Restaurant" + resBean.toString() + " Failed 2");
 		} finally{
 			mav.addObject("loggedInUser", username);
-			mav.addObject("resBean", new EmployeeBean());
+			mav.addObject("resBean", new RestaurantBean());
 		}
 		
 		return mav;

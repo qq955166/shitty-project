@@ -20,6 +20,16 @@
 			<a href="/DailyLunchGenerator">Logout</a>
 		</div>
 	</div>
+	
+	<input type="hidden" id="result" value="${result}">
+	
+	<div id="rtnmsg" class="rtnmsg">
+		<div class="rtnmsg-cont">
+			<span class="close">&times;</span>
+			<p>${result}</p>
+		</div>
+	</div>
+	
 	<div class="dashboard">
 		<br/>		
 		<form id="addform" action="addRes" method="get">
@@ -28,8 +38,6 @@
 		</form>
 		
 		<br/>
-		
-		<p class="result">${result}</p>
 		
 		<c:if test="${not empty lists}">
 			<table>
@@ -61,5 +69,6 @@
 			</table>
 		</c:if>
 	</div>
+
 </body>
 </html>
