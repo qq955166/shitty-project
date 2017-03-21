@@ -8,13 +8,16 @@
 </head>
 <body>
 
-	<fm:form id="userform">
+	<fm:form id="userform" method="post" action="submit" modelAttribute="userBean">
 		<fm:label path="username">Please enter your username</fm:label>
-		<form:input id="username" name="username" path="" /><br>
-		<form:label path="password">Please enter your password</form:label>
-		<form:password id="password" name="password" path="" /><br>
-		<form:label path="password">Please enter your password</form:label>
-		<form:password id="password" name="password" path="" /><br>
+		<fm:input id="username" name="username" path="username" /><br>
+		<fm:errors path="username" cssClass="error"/>
+		<fm:label path="password">Please enter your password</fm:label>
+		<fm:password id="password" name="password" path="password" /><br>
+		<fm:errors path="password" cssClass="error"/>
+		<fm:label path="cpassword">Please confirm your password</fm:label>
+		<fm:password id="cpassword" name="cpassword" path="cpassword" /><br>
+		<fm:errors path="cpassword" cssClass="error"/>
 	</fm:form>
 
 </body>

@@ -13,11 +13,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class RestaurantDAOImpl implements RestaurantDAO{
 	
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 	
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	

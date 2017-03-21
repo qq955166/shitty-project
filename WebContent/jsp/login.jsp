@@ -30,8 +30,8 @@
 			<fm:errors path="password" cssClass="error"/>
 			<br>
 			<div class="submitDiv">
-				<input type="submit" name="login" value="Login" /> <input
-					type="submit" name="createuser" value="Create User" />
+				<input type="submit" name="login" value="Login" />
+				<input type="submit" name="createuser" value="Create User" />
 			</div>
 		</fm:form>
 	</div>

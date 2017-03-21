@@ -52,7 +52,7 @@ public class LoginController
 	}
 
 	@RequestMapping(value="/submit", method=RequestMethod.POST, params="login")
-	public ModelAndView executeLogin(@Validated UserBean userBean, BindingResult result, RedirectAttributes redir)
+	public ModelAndView executeLogin(@ModelAttribute("userBean") @Validated UserBean userBean, BindingResult result, RedirectAttributes redir)
 	{
 		
 		ModelAndView model= null;
@@ -60,7 +60,7 @@ public class LoginController
 		if(result.hasErrors()){
 			logger.debug("Returning login page");
 			model = new ModelAndView("login");
-			model.addObject("userBean", new UserBean());
+			//model.addObject("userBean", new UserBean());
 			return model;
 		}
 		
@@ -97,9 +97,24 @@ public class LoginController
 	}
 
 	@RequestMapping(value="/submit", method=RequestMethod.POST, params="createuser")
-	public ModelAndView createUser(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("UserBean") UserBean userBean){
+	public ModelAndView openCreateUserPage(UserBean userBean, BindingResult result){
+		
+		ModelAndView mav = new ModelAndView("createUser");		
+		return mav;
+		
+	}
+	
+	@RequestMapping(value="/submit", method=RequestMethod.POST)
+	public ModelAndView createUser(HttpServletRequest request, @ModelAttribute("userBean") @Validated UserBean userBean, BindingResult result){
 
 		ModelAndView mav = null;
+		
+		if(result.hasErrors()){
+			logger.debug("Returning login page");
+			mav = new ModelAndView("login");
+			//mav.addObject("userBean", new UserBean());
+			return mav;
+		}
 
 		String username = userBean.getUsername();
 		String password = userBean.getPassword();
