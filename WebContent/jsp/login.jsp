@@ -20,13 +20,12 @@
 <body>
 	<div class="login">
 		<p class="message">${message}</p>
+		<p>Sign In</p>
 		<fm:form method="post" action="submit" modelAttribute="userBean">
-			<fm:label path="username">Enter your username</fm:label>
-			<fm:input name="username" path="username" />
+			<fm:input name="username" path="username" placeholder="Account Name" />
 			<fm:errors path="username" cssClass="error"/>
 			<br>
-			<fm:label path="password">Enter your password</fm:label>
-			<fm:password name="password" path="password" />
+			<fm:password name="password" path="password" placeholder="Password"/>
 			<fm:errors path="password" cssClass="error"/>
 			<br>
 			<div class="submitDiv">

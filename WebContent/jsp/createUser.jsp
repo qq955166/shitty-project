@@ -1,8 +1,11 @@
 <%@ taglib prefix="fm" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<spring:url value="/resources/javascript/createUser.js" var="createUserJS" />
+<script src="${createUserJS}"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create User</title>
 </head>
@@ -15,6 +18,8 @@
 		<fm:label path="password">Please enter your password</fm:label>
 		<fm:password id="password" name="password" path="password" /><br>
 		<fm:errors path="password" cssClass="error"/>
+	</fm:form>
+	<fm:form id="confirmpassword">
 		<fm:label path="cpassword">Please confirm your password</fm:label>
 		<fm:password id="cpassword" name="cpassword" path="cpassword" /><br>
 		<fm:errors path="cpassword" cssClass="error"/>
