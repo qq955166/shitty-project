@@ -51,17 +51,16 @@ public class LoginController
 		return model;
 	}
 
-	@RequestMapping(value="/submit", method=RequestMethod.POST, params="login")
+	@RequestMapping(value="/signIn", method=RequestMethod.POST)
 	public ModelAndView executeLogin(@ModelAttribute("userBean") @Validated UserBean userBean, BindingResult result, RedirectAttributes redir)
 	{
 		
-		ModelAndView model= null;
+		ModelAndView mav= null;
 		
 		if(result.hasErrors()){
 			logger.debug("Returning login page");
-			model = new ModelAndView("login");
-			//model.addObject("userBean", new UserBean());
-			return model;
+			mav = new ModelAndView("login");
+			return mav;
 		}
 		
 		String username = (String)userBean.getUsername();
@@ -74,7 +73,7 @@ public class LoginController
 			{
 				int id = userService.getUserIDbyName(username);
 	
-				model = new ModelAndView("redirect:"+id+"/dashboard");
+				mav = new ModelAndView("redirect:"+id+"/dashboard");
 				
 				logger.debug("User " + username + " logined.");
 				
@@ -82,9 +81,9 @@ public class LoginController
 			}
 			else
 			{
-				model = new ModelAndView("login");
-				model.addObject("userBean", new UserBean());
-				model.addObject("message", "Invalid credentials!!");
+				mav = new ModelAndView("login");
+				mav.addObject("userBean", new UserBean());
+				mav.addObject("message", "Invalid credentials!!");
 			}
 
 		}
@@ -93,10 +92,10 @@ public class LoginController
 			e.printStackTrace();
 		}
 
-		return model;
+		return mav;
 	}
 
-	@RequestMapping(value="/submit", method=RequestMethod.POST, params="createuser")
+	@RequestMapping(value="/createUser")
 	public ModelAndView openCreateUserPage(UserBean userBean, BindingResult result){
 		
 		ModelAndView mav = new ModelAndView("createUser");		
@@ -104,15 +103,14 @@ public class LoginController
 		
 	}
 	
-	@RequestMapping(value="/submit", method=RequestMethod.POST)
+	@RequestMapping(value="/createUser/submit", method=RequestMethod.POST)
 	public ModelAndView createUser(HttpServletRequest request, @ModelAttribute("userBean") @Validated UserBean userBean, BindingResult result){
 
 		ModelAndView mav = null;
 		
 		if(result.hasErrors()){
-			logger.debug("Returning login page");
-			mav = new ModelAndView("login");
-			//mav.addObject("userBean", new UserBean());
+			logger.debug("Returning create user page");
+			mav = new ModelAndView("createUser");
 			return mav;
 		}
 
@@ -125,11 +123,11 @@ public class LoginController
 
 			if(!isCreatedUser && userService.createUser(username, password)){
 				mav = new ModelAndView("login");
-				mav.addObject("accountBean", new UserBean());
+				mav.addObject("userBean", new UserBean());
 				request.setAttribute("message", "Created account sucesseded");
 			}else{
 				mav = new ModelAndView("login");
-				mav.addObject("accountBean", new UserBean());
+				mav.addObject("userBean", new UserBean());
 				request.setAttribute("message", "The account has been existed");
 			}
 

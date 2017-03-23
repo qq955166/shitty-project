@@ -11,26 +11,19 @@
 <spring:url value="/resources/tomcat.png" var="icon" />
 <link href="${icon}" rel="shortcut icon" type="image/x-icon"/>
 <title>Daily Lunch Generator</title>
-<style>
-    .error {
-        color: red; font-weight: bold;
-    }
-</style>
 </head>
 <body>
 	<div class="login">
 		<p class="message">${message}</p>
-		<p>Sign In</p>
-		<fm:form method="post" action="submit" modelAttribute="userBean">
+		<p id="welcome">Welcome To Daily Lunch Generator!</p>
+		<fm:form method="post" action="/DailyLunchGenerator/signIn" modelAttribute="userBean">
 			<fm:input name="username" path="username" placeholder="Account Name" />
-			<fm:errors path="username" cssClass="error"/>
-			<br>
+			<p><fm:errors path="username" cssClass="error"/></p>
 			<fm:password name="password" path="password" placeholder="Password"/>
-			<fm:errors path="password" cssClass="error"/>
-			<br>
+			<p><fm:errors path="password" cssClass="error"/></p>
 			<div class="submitDiv">
-				<input type="submit" name="login" value="Login" />
-				<input type="submit" name="createuser" value="Create User" />
+				<input type="submit" name="login" value="Sign In" />
+				<p>Not a member yet? <a href="/DailyLunchGenerator/createUser">Sign up now</a> </p>
 			</div>
 		</fm:form>
 	</div>
