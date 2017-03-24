@@ -44,6 +44,9 @@
 	<bean id="loginValidator" class="johnny.dailylunchgenerator.validator.loginValidator">
 	</bean>
 	
+	<bean id="restaurantValidator" class="johnny.dailylunchgenerator.validator.restaurantValidator">
+	</bean>
+	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename">
             <value>/resources/messages</value>

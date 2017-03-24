@@ -1,11 +1,11 @@
 package johnny.dailylunchgenerator.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import johnny.dailylunchgenerator.delegate.LoginDelegate;
 import johnny.dailylunchgenerator.service.UserService;
 import johnny.dailylunchgenerator.validator.loginValidator;
 import johnny.dailylunchgenerator.viewBean.UserBean;
@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -59,6 +59,10 @@ public class LoginController
 		ModelAndView mav= null;
 		
 		if(result.hasErrors()){
+			List<FieldError> errors = result.getFieldErrors();
+		    for (FieldError error : errors ) {
+		    	logger.debug(error.getObjectName() + " - " + error.getDefaultMessage());
+		    }
 			logger.debug("Returning login page");
 			mav = new ModelAndView("login");
 			return mav;

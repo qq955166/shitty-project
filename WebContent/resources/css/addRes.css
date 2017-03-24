@@ -7,6 +7,12 @@
 	text-align: center;
 }
 
+.error {
+	text-align: center;
+	margin: 10px auto;
+	color: red;
+}
+
 a {
 	position:absolute;
 	right:0px;
@@ -57,20 +63,23 @@ a {
     padding: 10px 10px 10px 10px;
     border-radius: 10px;
     font-family: Monospace;
-    font-size: 1.5em;
+    text-align: center;
+}
+
+.addRes .res{
+	text-align: left;
 }
 
 .addRes .res .checkbox{
 	display: inline-block;
 	width:100px;
-	margin: 0 10px auto; 
+	margin: 0px 0px 0px 10px; 
 	text-align: left;
 }
 
-.addRes .res p{
+.addRes .res .text{
 	display: inline-block;
-	float: left;
-	width: 220px;
+	width: 200px;
 	margin: 0 10px auto; 
 	text-align: right;
 }
@@ -96,9 +105,8 @@ a {
 
 .addRes .res input[type=text], [type=password], [type=radio]{
 	display: inline-block;
-  	float: left;
 	border: 2px solid gray;
     border-radius: 5px;
     font-size: 1em;
-    margin: 0px 0px 10px 50px;
+    margin: 0px 0px 10px 10px;
 }

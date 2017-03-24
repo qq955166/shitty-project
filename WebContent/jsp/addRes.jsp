@@ -20,16 +20,21 @@
 		<p>Please complete the following fields:</p>
 		<br/>
 		<div class="res">
-			<fm:form action="action" method="post" modelAttribute="resBean">
-				<p>Restaurant Name:</p>
-				<fm:input type="text" path="resname" required="required"/><br/>
-				<p>Restaurant Address:</p>
-				<fm:input type="text" path="address"/><br/>
-				<p>Description:</p>
-				<fm:input type="text" path="description"/><br/>
-				<p>Food Type:</p>
+			<fm:form action="addRes" method="post" modelAttribute="resBean">
+				<p class="text">Restaurant Name:</p>
+				<fm:input type="text" path="resname"/>
+				<fm:errors path="resname" cssClass="error"/>
+				<br/>
+				<p class="text">Restaurant Address:</p>
+				<fm:input type="text" path="address"/>
+				<br/>
+				<p class="text">Description:</p>
+				<fm:input type="text" path="description"/>
+				<br/>
+				<p class="text">Food Type:</p>
 				<fm:radiobutton path="food_type" value="normal" checked="yes"/><p class="checkbox">Normal</p>
 				<fm:radiobutton path="food_type" value="fast"/><p class="checkbox">Fast</p>
+				<p></p>
 				<div class="resDiv">
 					<input type="submit" name="addRes" value="Add" />
 					<input type="submit" name="cancel" value="Cancel" />
