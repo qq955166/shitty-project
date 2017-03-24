@@ -60,7 +60,7 @@ public class AddResController {
 		
 			List<RestaurantBean> resList = resService.getRestaurantbyBean(resBean);
 			
-			if(resList==null){
+			if(resList==null || resList.size()==0){
 				
 				resBean.setUser_id(id);
 				
@@ -81,7 +81,7 @@ public class AddResController {
 			
 		} catch (Exception e) {
 			mav.addObject("result", "Add Restaurant Failed.");
-			logger.debug("Add Restaurant" + resBean.toString() + " Failed 2");
+			logger.debug("Add Restaurant" + resBean.toString() + " Failed with error: " + e.getMessage());
 		} finally{
 			mav.addObject("loggedInUser", username);
 			mav.addObject("resBean", new RestaurantBean());

@@ -36,6 +36,7 @@ public class LoginController
 	private UserService userService;
 	
 	@Autowired
+	@Qualifier("loginValidator")
 	private loginValidator validator;
 
 	@InitBinder
