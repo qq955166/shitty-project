@@ -8,8 +8,10 @@
 <spring:url value="/resources/javascript/dashboard.js" var="dashboardJS" />
 <script src="${dashboardJS}"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<spring:url value="/resources/css/dashboard.css" var="dashboardCss" />
-<link href="${dashboardCss}" rel="stylesheet" />
+<spring:url value="/resources/css/header.css" var="headerCSS" />
+<link href="${headerCSS}" rel="stylesheet" />
+<spring:url value="/resources/css/listOfContent.css" var="listOfContentCSS" />
+<link href="${listOfContentCSS}" rel="stylesheet" />
 <title>Admin Dashboard</title>
 </head>
 <body>
@@ -30,13 +32,17 @@
 		</div>
 	</div>
 	
-	<div class="dashboard">
+	<div class="functionDiv">
+		<div class="addRes">
+			<form action="addRes" method="get">
+				<input type="hidden" name="loggedInUser" value="${loggedInUser}">
+				<input type="submit" name="addRes" value="Add Restaurant">
+			</form>
+		</div>
+	</div>
+	
+	<div class="list">
 		<br/>		
-		<form id="addform" action="addRes" method="get">
-			<input type="hidden" name="loggedInUser" value="${loggedInUser}">
-			<input type="submit" name="addRes" value="Add Restaurant">
-		</form>
-		
 		<br/>
 		
 		<c:if test="${not empty lists}">

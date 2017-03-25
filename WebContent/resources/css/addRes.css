@@ -13,52 +13,13 @@
 	color: red;
 }
 
-a {
-	position:absolute;
-	right:0px;
-	padding: 10px;
-	font-family: Monospace;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.header {
-    height:50px;
-    background:#000000;
-    border:1px solid #CCC;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width:100%;
-    text-align: left;
-}
-
-.header-cont a{
-	display: inline-block;
-	color: #FFFFFF;
-	position:relative;
-	float: right;
-	margin: 10px 10px 0px 10px;
-	font-family: Monospace;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.header-cont p{
-	display: inline-block;
-	color: #FFFFFF;
-	position:relative;
-	float: left;
-	margin: 10px 10px 0px 10px;
-	font-family: Monospace;
-    font-size: 2em;
-}
-
 .addRes{
 	background-color: #f2f2f2;
-    position:absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
+    width: 500px;
+    height: 250px;
     transform: translate(-50%, -50%);
     padding: 10px 10px 10px 10px;
     border-radius: 10px;
@@ -72,7 +33,7 @@ a {
 
 .addRes .res .checkbox{
 	display: inline-block;
-	width:100px;
+	width:50px;
 	margin: 0px 0px 0px 10px; 
 	text-align: left;
 }
@@ -91,15 +52,12 @@ a {
 	text-align: center;
 }
 
-.addRes .resDiv input[type=submit]{
-	font-size: 1em;
-}
-
 .addRes .res input[type=submit]{
 	display: inline-block;
 	margin: 10px auto;
 	border-radius: 5px;
 	font-family: Monospace;
+	font-size: 1em;
 	text-align: center;
 }
 

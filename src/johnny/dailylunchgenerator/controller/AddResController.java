@@ -66,12 +66,10 @@ public class AddResController {
 	}
 	
 	@RequestMapping(value="/{id}/addRes",  params="cancel", method=RequestMethod.POST)
-	public ModelAndView retrun(@PathVariable("id") int id, @RequestParam String cancel){
+	public ModelAndView retrun(@PathVariable("id") int id){
 		
-		ModelAndView mav = new ModelAndView("redirect:/"+id+"/dashboard");
-		
+		ModelAndView mav = new ModelAndView("redirect:/"+id+"/dashboard");		
 		return mav;
-		
 	}
 	
 	@RequestMapping(value="/{id}/addRes", params="addRes", method=RequestMethod.POST)

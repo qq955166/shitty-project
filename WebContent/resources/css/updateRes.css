@@ -4,73 +4,47 @@
 	color: red;
 }
 
-.header {
-    height:50px;
-    background:#000000;
-    border:1px solid #CCC;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width:100%;
-    text-align: left;
-}
-
-.header-cont a{
-	display: inline-block;
-	color: #FFFFFF;
-	position:relative;
-	float: right;
-	margin: 10px 10px 0px 10px;
-	font-family: Monospace;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.header-cont p{
-	display: inline-block;
-	color: #FFFFFF;
-	position:relative;
-	float: left;
-	margin: 10px 10px 0px 10px;
-	font-family: Monospace;
-    font-size: 2em;
-}
-
-.updateRes{
+.updateRes {
 	background-color: #f2f2f2;
-    position:absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
+    width: 500px;
+    height: 250px;
     transform: translate(-50%, -50%);
-    padding: 10px 20px 10px 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 10px;
     font-family: Monospace;
-    font-size: 1.5em;
+    text-align: center;
+}
+
+.updateRes .res {
+	text-align: left;
+}
+
+.updateRes .text{
+	display: inline-block;
+	width: 200px;
+	margin: 0 10px auto;
+	text-align: right;
 }
 
 .updateRes .checkbox{
 	display: inline-block;
-	width:100px;
-	margin: 0 10px 0px 50px; 
+	width:50px;
+	margin: 0px 0px 0px 10px; 
 	text-align: left;
 }
 
 .updateRes .updateDiv{
-	margin: 20px 0px 0px 0px;
-	height: 50px;
+	display: inline-block;
+	height: 30px;
 	width: 100%;
 	text-align: center;
 }
 
-.updateRes label{
-	display: inline-block;
-	float: left;
-	width: 220px;
-	margin: 0 10px auto; 
-	text-align: right;
-}
-
 .updateRes input[type=submit]{
+	display: inline-block;
 	margin: 10px auto;
 	border-radius: 5px;
 	font-family: Monospace;
@@ -78,11 +52,10 @@
 	text-align: center;
 }
 
-.updateRes input[type=text], [type=password]{
+.updateRes input[type=text], [type=password], [type=radio]{
 	display: inline-block;
-  	float: left;
 	border: 2px solid gray;
     border-radius: 5px;
     font-size: 1em;
-    margin: 0px 0px 10px 50px;
+    margin: 0px 0px 10px 10px;
 }

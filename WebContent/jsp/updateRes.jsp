@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<spring:url value="/resources/css/updateRes.css" var="updateRessCss" />
-<link href="${updateRessCss}" rel="stylesheet" />
+<spring:url value="/resources/css/header.css" var="headerCSS" />
+<link href="${headerCSS}" rel="stylesheet" />
+<spring:url value="/resources/css/updateRes.css" var="updateResCSS" />
+<link href="${updateResCSS}" rel="stylesheet" />
 <title>Update Restaurant</title>
 </head>
 <body>
@@ -20,17 +22,34 @@
 
 	<div class="updateRes">
 		<p>${error}</p>
-		<fm:form action="save" method="post" modelAttribute="resBean">
-			<p><label>Restaurant Name:</label><fm:input type="text" path="resname" placeholder="${resname}"></fm:input></p>
-			<p><label>Restaurant Address:</label><fm:input type="text" path="address" placeholder="${address}"></fm:input></p>
-			<p><label>Description:</label><fm:input type="text" path="description" placeholder="${description}"></fm:input></p>	
-			<label>Food Type:</label>
-			<div class="checkbox"><fm:radiobutton path="food_type" value="normal" checked="yes"/>Normal</div>
-			<div class="checkbox"><fm:radiobutton path="food_type" value="fast"/>Fast</div>
-			<div class="updateDiv">
-				<input type="submit" name="updateRes" value="Update">
-			</div>
-		</fm:form>
+		<p>Please complete the following fields:</p>
+		<br/>
+		<div class="res">
+			<fm:form action="save" method="post" modelAttribute="resBean">
+				<p class="text">Restaurant Name:</p>
+				<fm:input type="text" path="resname" placeholder="${resname}" />
+				<fm:errors path="resname" cssClass="error" />
+				<br />
+				<p class="text">Restaurant Address:</p>
+				<fm:input type="text" path="address" placeholder="${address}" />
+				<br />
+				<p class="text">Description:</p>
+				<fm:input type="text" path="description"
+					placeholder="${description}" />
+				<br />
+				<p class="text">Food Type:</p>
+				<fm:radiobutton path="food_type" value="normal" checked="yes" />
+				<p class="checkbox">Normal</p>
+				<fm:radiobutton path="food_type" value="fast" />
+				<p class="checkbox">Fast</p>
+				<p></p>
+				<div class="updateDiv">
+					<input type="submit" name="updateRes" value="Update"> 
+					<input type="submit" name="cancel" value="Cancel">
+				</div>
+				<br />
+			</fm:form>
+		</div>
 	</div>
 </body>
 </html>
